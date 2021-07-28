@@ -32,10 +32,11 @@
 .container {
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
+  scroll-behavior: smooth;
   height: 100vh;
 }
 
-section {
+article {
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -46,13 +47,51 @@ section {
 
 .one {
   background-color: rgb(206, 130, 44);
+  display: grid;
+  grid-template-columns: 50% auto;
 }
 .two {
-  background-color: rgb(50, 37, 107);
+  background-color: cadetblue;
+  display: grid;
+  grid-template-columns: 50% auto;
+  place-items: center;
 }
+
 .three {
   background-color: rgb(151, 73, 151);
 }
 .four {
-  background-color: rgb(175, 206, 92);
+}
+
+.left {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.left p {
+  position: relative;
+}
+.yellow {
+  width: 50%;
+}
+
+.right {
+  display: grid;
+  place-items: center;
+  margin: 5%;
+}
+.right p {
+  width: 70%;
+}
+
+@keyframes anim1 {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
