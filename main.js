@@ -1,9 +1,27 @@
 "use strict";
 //Oprtion2 -jQuery smooth scroll
 const blocks = document.querySelectorAll("main article");
+///test
+$(function () {
+  $(window).scroll(function () {
+    var windscroll = $(window).scrollTop();
+    $("ul li a").each(function (i) {
+      var posTop = $($(this).attr("href")).position().top,
+        h = $($(this).attr("href")).height();
 
-// Option 2 - jQuery Smooth Scrolling
-$(".navbar a").on("click", function (e) {
+      if (posTop <= windscroll && posTop + h > windscroll) {
+        $(".menu ul li a").removeClass("active");
+        $(this).addClass("active");
+      } else {
+        $(this).removeClass("active");
+      }
+    });
+  });
+});
+console.log();
+
+// Option  - jQuery Smooth Scrolling
+$("menu a").on("click", function (e) {
   if (this.hash !== "") {
     e.preventDefault();
 
@@ -18,6 +36,13 @@ $(".navbar a").on("click", function (e) {
   }
 });
 
+// // showing activation of Side Nav links
+$("a").on("click", function () {
+  $("a").removeClass("active");
+  $(this).addClass("active");
+});
+
+//animation effect on scrolling
 const blocksObserver = new IntersectionObserver(
   (entries) => {
     // entries === elements
